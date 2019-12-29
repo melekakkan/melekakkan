@@ -1,0 +1,47 @@
+{% extends "sablon.html" %} {% block icerik %}
+
+<!-- flash() ile app.py'den gelen hata varsa öncelikle bunları sayfada gösterelim-->
+{% with hatalar = get_flashed_messages() %} {% if hatalar %} {% for hata in
+hatalar %}
+<div class="p-3 mb-2 bg-danger text-white">{{ hata }}</div>
+{% endfor %} {% endif %} {% endwith %}
+
+<!-- Sayfa içeriği -->
+<div class="jumbotron">
+  <h2>Ailemize Hoşgeldiniz..</h2>
+</div>
+<div class="contact-area">
+  <div class="container">
+    <form class="w3-container" action="/kayit" method="POST">
+      <label>Email</label>
+      <input
+        class="w3-input"
+        type="email"
+        class="form-control"
+        id="eposta"
+        name="eposta"
+        placeholder="E-posta adresinizi giriniz"
+        required
+      />
+
+      <label>Şifre</label>
+      <input
+        class="w3-input"
+        type="password"
+        class="form-control"
+        id="sifre"
+        name="sifre"
+        placeholder="Şifreniz"
+        required
+      />
+      <br />
+      <br />
+      <button class="w3-btn w3-blue-grey">Kaydol</button>
+    </form>
+  </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+{% endblock %}
